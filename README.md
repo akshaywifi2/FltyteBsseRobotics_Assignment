@@ -1,107 +1,100 @@
+Drone Mission Conflict Detection System
 
+This project implements a Drone Mission Conflict Detection System to ensure safe operations in shared airspace.
+It detects conflicts between drone flight paths using both 2D and 3D trajectories, provides recommendations, and includes visualization tools.
+Features
 
-* Project Name - Drone Mission Conflict Detection System 
+    Continuous conflict detection using interpolation (2D and 3D)
 
-* Project Structure
+    Safety distance checks between missions
 
+    Recommendations for route changes or time delays
+
+    Visualization tools for:
+
+        2D mission animation
+
+        3D mission visualization and animation
+
+        Comparison of 2D vs 3D conflict detection
+        
+      Project structure
+      
 drone_deconfliction/
 │
 ├── src/
 │   ├── models.py                # Data models for waypoints and missions
-│   ├── conflict_detector.py     # Interpolation-Based Continuous Conflict Detection
+│   ├── conflict_detector.py     # Interpolation-based conflict detection
 │
 ├── data/
-│   ├── sample_missions.py       # Example missions for testing
+│   ├── sample_missions.py       # Example 2D and 3D missions
 │
 ├── visualizations/
-│   ├── visualize_2d_animation.py   # 2D animation with conflict markers
-│   ├── visualize_3d .py    # (Bonus) 3D animation with  altitude
-│   ├── compare_2d_3d.py     #  compares conflict detection results in 2D vs 3D 
-├── visualize_missions.py     # Visualize path 
+│   ├── visualize_2d_animation.py  # 2D animation with conflict markers
+│   ├── visualize_3d.py            # 3D animation with altitude
+│   ├── compare_2d_3d.py           # Compare 2D vs 3D conflict detection
+│   ├── visualize_missions.py      # Static visualization of missions
 │
-├── test_2d_3d.py                # Demonstrates 2D and 3D data support
-├── main_deconfliction_system.py # Final authority for verifying drone mission safety in shared airspace
-├── query_test.py                # initial query ytest before takeoff
-├── test_2d_3d.py 
-├── test_basic.py
-├── README.md
+├── main_deconfliction_system.py   # Final authority for mission safety
+├── query_test.py                  # Initial mission safety query test
+├── test_basic.py                  # Basic waypoint test (2D)`
+├── test_2d_3d.py                  # Demonstrates 2D and 3D functionality
+└── README.md
 
-* Test Models  and Code Execution commands 
+How to Run
 
-FOlder - root folder -:  drone_deconflication
+Navigate to the root folder:
 
-1. test_basic.py 
+cd drone_deconfliction
 
-shows 
- -> tested 2d waypoints at time instant 
- -> distnace between two waypoints
- -> no of waypoints
+1. Basic Test
 
- run - python3 test_basic.py
+python3 test_basic.py
 
- 2. test_2d_3d.py
- shows
- -> 2d subcordinates
- -> 3d subcordinates (by adding z)
- -> check conflicts - gave descision Ttrue /False
+    Tests 2D waypoints, calculates distances, and prints mission info.
 
- run -> python3 test_2d_3d.py
+2. 2D and 3D Mode Test
 
- 3. main_deconfliction_system.py 
- (Final authority for verifying drone mission )
--> Genrates Query for UAV STRATEGIC DECONFLICTION SYSTEM (2D dn 3D Mission)
+python3 test_2d_3d.py
 
-run-> main_deconfliction_system.py 
+    Compares 2D and 3D coordinates and checks conflict detection.
 
-OUTPUT :->
+3. Main Deconfliction System
 
-================================================================================
-UAV STRATEGIC DECONFLICTION SYSTEM - DEMONSTRATION
-================================================================================
+python3 main_deconfliction_system.py
 
+    Runs the UAV Strategic Deconfliction System, approves/rejects missions, and shows recommendations.
 
-* Folder - drone_deconflication/visualization 
+Visualization Tools
 
-* visualization
+From visualizations/ folder:
 
-1. visualize_2d_animation.py
-- > visualizae 2d Deconflication animation
+    2D Animation:
 
-run -> python3  visualize_2d_animation.py
+python3 visualize_2d_animation.py
 
-2. visualize_3d.py
--> Visualize 3d Deconflication animation
+3D Visualization and Animation:
 
-run -> python3 visualize_3d.py
+python3 visualize_3d.py
 
-3. visualize_mission.py
--> visualize static graphical representation of mission path and conflict
+Compare 2D vs 3D:
 
-run -> python3 visualize_mission.py
+python3 compare_2d_3d.py
 
-4. compare_2d_3d.py
--> final report and comparision between 2d and 3d subcordinate dron conflicts
+Static Visualization:
 
-run -> python3 compare_2d_3d.py
+    python3 visualize_missions.py
 
-******************************************************************************
-* FOlder - drone_deconflication/data
+Data
 
-1. sample_missions.py
-- >  Hardcordate mission co-ordinates
+From data/:
 
-run-> Python3 sample_missions.py
+python3 sample_missions.py
 
-Ouput-> sampple co-ordinates
+Generates and prints sample 2D and 3D missions for testing.
 
-***********************************************************************************
-*folder- drone_deconflication/src
-1. Conflict_detector.py
- -> conflict detector logic implimentation 
+Core Logic
 
+    conflict_detector.py: Interpolation-based conflict detection algorithm.
 
-
-
-
-
-
+    models.py: Defines waypoints and missions.
